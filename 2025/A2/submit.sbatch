@@ -4,7 +4,7 @@
 #SBATCH --partition=falcon,gecko   # Adjust based on your cluster
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4            # Adjust CPU count
+#SBATCH --cpus-per-task=1            # Adjust CPU count
 #SBATCH --mem=16G                    # Adjust memory
 #SBATCH --gres=gpu:1                  # Remove if not using GPU
 #SBATCH --output=joboutput_%j.out # Standard out from your job
@@ -21,4 +21,6 @@ NODE=$(hostname)
 PORT=8888  # Change if needed
 
 # Start Jupyter Notebook without a browser, binding to all interfaces
+# papermill assignment.ipynb assignment_out.ipynb
+
 papermill q3_testing.ipynb test_output.ipynb
